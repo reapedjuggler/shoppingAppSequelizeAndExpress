@@ -1,7 +1,7 @@
 const User = require('../../db').User // Same as like when you have to pick a file from outside this directory like db.js is 2 level above than this
 
-                                     // so one ../ is same as cd .. so db.js is 2 level above outside so we need to move outside of api --> then route
-                                     // i.e api --> routes --> db.js              
+// so one ../ is same as cd .. so db.js is 2 level above outside so we need to move outside of api --> then route
+// i.e api --> routes --> db.js              
 
 const route = require('express').Router();
 
@@ -23,15 +23,15 @@ route.get('/', (req, res, next) => { // and similarly ./ moves to the next direc
 
 route.post('/', (req, res, next) => {
     User.create({
-        name: req.body.name,
-    }).then((user) => {
-        res.status(201).send(user);
-    })
-    .catch((err) => {
-        res.status(500).send({
-            error: "Could not add new User"
+            name: req.body.name,
+        }).then((user) => {
+            res.status(201).send(user);
         })
-    });
+        .catch((err) => {
+            res.status(500).send({
+                error: "Could not add new User"
+            })
+        });
 });
 
 exports = module.exports = {
