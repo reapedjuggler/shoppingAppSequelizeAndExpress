@@ -9,11 +9,6 @@ const server = express();
 server.use(express.json());
 server.use(express.urlencoded({extended: true}));
 
-
-server.get('/', (req, res, next) => {
-    res.send("Hello Reaped");
-});
-
 server.use('/api', require('./routes/api').route)    
 server.use('/', express.static(path.join(__dirname, 'public')))
 
